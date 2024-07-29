@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        div {
+            
+            border: 3px solid;
+            border-color: violet;
+            margin: 50px;
+            padding: 10px;
+            width: max-content;
+        }
+
+        h4 {
+            margin: 10px;
+        }
+
+        input {
+            margin: 10px;
+        }
+
+
+        textarea {
+            margin: 10px;
+        }
+
+        button {
+            margin: 30px;
+        }
+    </style>
+
+    <form onsubmit="return changeDiv()">
+        <h4>
+            Enter the Width
+        </h4>
+        <input type="number" placeholder="Enter the width" id="width">
+        <br>
+        <h4>
+            Enter the Hieght
+        </h4>
+        <input type="number" placeholder="Enter the hieght" id="height">
+        <br>
+        <h4>
+            Choose the Color
+        </h4>
+        <input type="color" placeholder="Enter the color" id="color">
+        <br>
+        <h4>
+            Enter the text
+
+        </h4>
+        <textarea id="text">
+
+        </textarea>
+        <br>
+
+        <button onclick="changeDiv()">
+            Create Div
+        </button>
+    </form>
+    <div id="divArea"></div>
+    <script>
+        function changeDiv() {
+            var w = document.getElementById('width').value
+            var h = document.getElementById('height').value
+            var c = document.getElementById('color').value
+            var t = document.getElementById('text').value
+            var div = document.getElementById('divArea')
+            div.style.height = h
+            div.style.width = w
+            div.style.backgroundColor = c
+            div.innerHTML = t
+            if(width!="" && height!="" && color!="" && text!=""){
+                document.getElementById('message').innerHTML=""
+                return true
+            }
+            else{
+                document.getElementById('message').innerHTML="Please fill all the mandatory details"
+                return false
+            }
+        }
+    </script>
+
+</body>
+
+</html>
